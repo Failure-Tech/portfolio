@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
-import pfp from "../assets/me.jpeg";
-import pearlogo from "../assets/pear.png"; // Make sure this path is correct
+import pfp from "../assets/images/me.jpeg";
+import pearlogo from "../assets/images/pear.png"; // Make sure this path is correct
 
 const About = () => {
     const navigate = useNavigate();

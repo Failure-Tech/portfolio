@@ -118,7 +118,7 @@ const Navbar: React.FC<{ minimal?: boolean}> = ({ minimal }) => {
                                                 </div>
                                             </a>
                                             <a href="https://www.linkedin.com/in/gautham-korrapati-946369272/" target="_blank" rel="noopener noreferrer">
-                                                <div className="text-white text-2xl pb-2 tansition duration-200 ease-in-out hover:text-blue-400">
+                                                <div className="text-white text-2xl pb-2 transition duration-200 ease-in-out hover:text-blue-400">
                                                     <FaLinkedin />
                                                 </div>
                                             </a>
