@@ -103,7 +103,7 @@ const Work:React.FC = () => {
                                             <p>{project.description}</p>
                                         </div>
                                         <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-3 text-center md:text-start mt-5">
-                                            <button className="border border-white transition-all ease-in-out hover:cursor-pointer hover:bg-blue-400 hvoer:border-blue-400 rounded-xl h-10 px-8 py-2">
+                                            <button className="border border-white transition-all ease-in-out hover:cursor-pointer hover:bg-blue-400 hover:border-blue-400 rounded-xl h-10 px-8 py-2 space-y-2">
                                                 <p className="text-sm font-graebenbach-mono-regular">{project.linkText}</p>
                                             </button>
                                         </div>
