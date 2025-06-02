@@ -4,7 +4,6 @@ import { CardSpotlight } from "./ui/Card";
 import { useNavigate } from "react-router-dom";
 import { HoverBorderGradient } from "./ui/HoverBorderGradient";
 import whiteArrow from "../assets/images/iconArrowUprightWhite.png";
-import blueArrow from "../assets/images/iconArrowUprightBlue.png";
 
 // const currProjects = [
 //     {
@@ -90,12 +89,12 @@ const Hero: React.FC = () => {
     }, []);
 
     const blur = 5;
-    const video = "../../assets/images/homebg.mp4";
+    const video = "../assets/images/homebg.mp4";
 
     return (
         <>
-            <main className="flex min-h screen w-full flex-col items-center justify-center py-8 md:py-12 lg:py-16">
-                <div className="z-[-1] w-full h-full bg-black flex items-center justify-center absolute top-0">
+            <main className="flex min-h screen w-full bg-black flex-col items-center justify-center py-8 md:py-12 lg:py-16">
+                <div className="z-[-1] w-full h-full flex items-center justify-center absolute top-0">
                     {isMounted && (
                         <video
                             className="absolute top-0 left-0 w-full object-cover"
@@ -120,7 +119,7 @@ const Hero: React.FC = () => {
                             <div className="flex flex-row w-full mb-3 items-center">
                                 <h1 className="tracking-tight font-voyager-thin text-[30px] md:text-[32px] lg:text-[30px]">hey, i'm gautham.</h1>
                             </div>
-                            <div className="w-full font-aeonik-thin space-y-6 leading-[1.5] text-[21px] md:text-[18px] lg:text-[18px]">
+                            <div className="w-full font-aeonik-bold space-y-6 leading-[1.5] text-[21px] md:text-[18px] lg:text-[18px]">
                                 <p>i'm a 16 y/o robotics + ml researcher studying CS at College of the Canyons. i'm learning how multimodal input + multi-agent systems can drive the future of agentic learning.</p>
                                 <p>i've made beautiful, intersubjective software from 0 → 5+. nowadays, i spend my time reading up on the latest ml research papers and thinking about continous learning tradeoffs for model training.</p>
                                 <p>currently based in la.</p>
@@ -143,7 +142,7 @@ const Hero: React.FC = () => {
                                             onMouseEnter={() => setHoveredProject(project.name)}
                                             onMouseLeave={() => setHoveredProject(null)}
                                         >
-                                            <p className="font-aeonik-bold text-[-18px] group-hover:text-blue-400 transition duration-200 ease-in-out ">{project.name}</p>
+                                            <p className="font-aeonik-bold text-[18px] group-hover:text-blue-400 transition duration-200 ease-in-out ">{project.name}</p>
                                             <div className="relative w-2 h-2 mt-1">
                                                 <img
                                                     src={whiteArrow}
@@ -165,7 +164,7 @@ const Hero: React.FC = () => {
                                                 />
                                             </div>
                                         </a>
-                                        <p className="opacity-90 font-aeonik-regular text-[18px] leading-[140%]">{project.desc}</p>
+                                        <p className="opacity-90 font-aeonik-thin text-[18px] leading-[140%]">{project.desc}</p>
                                     </div>
                                 </div>
                             ))}
@@ -202,7 +201,7 @@ const Hero: React.FC = () => {
                                     <div className="flex flex-row w-full justify-between items-center">
                                         <p className="font-aeonik-medium text-[18px]">dailysat</p>
                                         <img 
-                                            src={blueArrow}
+                                            src={whiteArrow}
                                             height={100}
                                             width={100}
                                             alt="white up arrow icon"
@@ -219,23 +218,23 @@ const Hero: React.FC = () => {
                         </div>
                     </div>
                     <div className="flex flex-col space-y-4 px-5">
-                        <h1 className="tracking-tight font-voyager-thin text-[21px]">see stuff below</h1>
+                        <h1 className="tracking-tight font-voyager-thin text-[21px]">explore below</h1>
                         <div className="flex flex-col pb-20 md:pb-0 pt-6 md:pt-0 lg:pt-0 sm:flex-row w-full space-y-3 md:space-y-0 md:space-x-4">
                             <HoverBorderGradient
                                 containerClassName="rounded-xl w-full text-center md:text-left sm:w-auto"
                                 link="/work"
                                 as="button"
-                                className="dark:bg-white bg-black text-white dark:text-black flex items-center space-x-2"
+                                className="dark:bg-black bg-black text-white dark:text-white flex items-center space-x-2"
                                 onClick={() => navigate('/work')}
-                            ><p className="font-graebenbach-mono-regular">VIEW WORK</p>
+                            ><p className="font-graebenbach-mono-regular hover:cursor-pointer">VIEW WORK</p>
                             </HoverBorderGradient>
                             <HoverBorderGradient
                                 containerClassName="rounded-xl w-full text-center md:text-left sm:w-auto"
                                 link="/work"
                                 as="button"
-                                className="dark:bg-white bg-black text-white dark:text-black flex items-center space-x-2"
+                                className="dark:bg-black bg-black text-white dark:text-white flex items-center space-x-2"
                                 onClick={() => navigate('/work')}
-                            ><p className="font-graebenbach-mono-regular">ABOUT ME</p>
+                            ><p className="font-graebenbach-mono-regular hover:cursor-pointer">ABOUT ME</p>
                             </HoverBorderGradient>
                         </div>
                     </div>
