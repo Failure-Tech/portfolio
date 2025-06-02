@@ -1,15 +1,12 @@
 import React from 'react';
-
-
 interface ButtonProps {
     text: string;
     link: string;
     newTab?: boolean;
     className?: string;
-    event?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({text, link, newTab = false, className, event}) => {
+const Button: React.FC<ButtonProps> = ({text, link, newTab = false, className}) => {
 
     return (
         <a href={link}>

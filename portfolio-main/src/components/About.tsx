@@ -57,7 +57,7 @@ const experiences = [
         year: "2023",
         companyName: "PearAI",
         link: "https://www.trypear.ai",
-        imageName: "../assets/images/pear.png",
+        imageName: "./src/assets/images/pear.png",
         roleDescription: "Worked on integrating Claude Sonnet 3.5 into developer chat, driving user retention & engagement to grow from <1% pre-launch to 5% of market. Worked on 3 sprints."
     },
     {
@@ -66,7 +66,7 @@ const experiences = [
         year: "2024",
         companyName: "Cmu",
         link: "https://safeai-lab.github.io/",
-        imageName: "../assets/images/cmu_safe_ai.jpeg",
+        imageName: "./src/assets/images/cmu_safe_ai.jpeg",
         roleDescription: "Worked on evaluating multimodal input to ELM models, using a 2 step process for model training and evaluation. Used 5+ datasets, and worked on implementing encoder-free VLMs such as Fuyu-8B."
     },
     {
@@ -75,7 +75,7 @@ const experiences = [
         year: "2024",
         companyName: "Fresno",
         link: "https://www.apanagopoulos.com/projects",
-        imageName: "../assets/images/fresno.jpg",
+        imageName: "./src/assets/images/fresno.jpg",
         roleDescription: "Helped create a CNN based model and cross-referenced with other architectures to process in data infra for farmers. Currently building a iterative mesh reconstruction mechanism with reinforcement learning."
     },
     {
@@ -84,7 +84,7 @@ const experiences = [
         year: "2025",
         companyName: "Coc RocksatX",
         link: "https://www.canyons.edu/academics/nasa/nasa-rocksatx.php",
-        imageName: "../assets/images/rsx_work.jpg",
+        imageName: "./src/assets/images/rsx_work.jpg",
         roleDescription: "Used an Intel-Realsense camera for saving data streams into bag files, using a customized computer-vision algorithm for object detection on space debris. Working on a ToF sensor to track depth perception through distance."
     }
 ]
@@ -152,15 +152,15 @@ const About: React.FC = () => {
                                                         src={exp.imageName}
                                                         height={118}
                                                         width={118}
-                                                        alt="Description for expereinces"
+                                                        alt="Description for experiences"
                                                     />
                                                 </div>
                                                 <div className="ml-10 w-9/12 items-start">
                                                     <p className="text-sm pb-5 text-gray-500">{exp.position}</p>
-                                                    <p className="font-voyager-thin tracking-tight text-[36px] mb-3">{exp.companyName}</p>
-                                                    <p className="text-[18px] mt-4 leading-[150%] text-gray-400">{exp.roleDescription}</p>
+                                                    <p className="font-voyager-thin tracking-tight text-white text-[36px] mb-3">{exp.companyName}</p>
+                                                    <p className="text-[18px] mt-4 leading-[150%] font-aeonik-thin text-gray-400">{exp.roleDescription}</p>
                                                 </div>
-                                                <div className="flex flex-col w-1/2 items-end">
+                                                <div className="flex flex-col w-1/2 items-end text-gray-500">
                                                     <p className="text-sm pb-5 tex-gray-500">{exp.year}</p>
                                                 </div>
                                             </div>

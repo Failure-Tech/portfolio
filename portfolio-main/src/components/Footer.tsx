@@ -12,9 +12,9 @@ const Footer: React.FC = () => {
                     </div>
                     <h1 className="tracking-tight font-aeonik-bold text-[29px] md:text-[75px] text-end leading-none">GRKORRAPATI@MY.CANYONS.EDU</h1>
                 </div>
-                <div className="flex flex-col px-8 lg:px-24 pb-5 lg:pb-10 items-start">
+                {/* <div className="flex flex-col px-8 lg:px-24 pb-5 lg:pb-10 items-start">
                     <h1 className="tracking-tight font-aeonik-regular text-[15px] md:text-[30px] leading-[100%]">credits to carter cote for the design</h1>
-                </div>
+                </div> */}
             </footer>
         </>
     )
