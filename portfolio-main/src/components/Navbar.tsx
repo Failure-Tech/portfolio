@@ -15,21 +15,21 @@ export const navLinks = [
         text: "WORK",
         link: "/work"
     },
-    {
-        text: "RESUME",
-        link: "/resume" // fix later
-    },
+    // {
+    //     text: "RESUME",
+    //     link: "/resume" // fix later
+    // },
     {
         text: "PLAY",
         link: "/play"
     },
-    {
-        text: "CONTACT",
-        link: "/contact"
-    }
+    // {
+    //     text: "CONTACT",
+    //     link: "/contact"
+    // }
 ]
 
-const Navbar: React.FC<{ minimal?: boolean}> = ({ minimal }) => {
+const Navbar: React.FC<{ minimal?: boolean}> = () => {
     const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -81,7 +81,7 @@ const Navbar: React.FC<{ minimal?: boolean}> = ({ minimal }) => {
             <div className="fixed-header-container">
                 <header className="z-50 fixed top-0 w-full flex items-center justify-between">
                     <a onClick={() => navigate('/')}>
-                        <p className="font-aeonik-bold text-[21px] md:text-[18px] tracking-tighter text-white absolute left-8 top-8 transition duration-200 ease-in-out hover:text-blue-400">GAUTHAM KORRAPATI</p>
+                        <p className="font-aeonik-bold text-[21px] md:text-[18px] tracking-tighter text-white absolute left-8 top-8 transition duration-200 ease-in-out hover:cursor-pointer hover:text-blue-400">GAUTHAM KORRAPATI</p>
                     </a>
                     {isMobile ? (
                         <>
