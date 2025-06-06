@@ -49,7 +49,7 @@ const Experience = () => {
                 <Map 
                     scale={maps[map as keyof typeof maps].scale}
                     position={maps[map as keyof typeof maps].position}
-                    model={`./src/assets/models/${map}.glb`}
+                    model={`/assets/models/${map}.glb`}
                 />
                 <CharacterController />
             </Physics>

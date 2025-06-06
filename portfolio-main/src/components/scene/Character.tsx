@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import type { Group, Material, SkinnedMesh } from "three";
 
-const model = "./src/assets/models/character.glb";
+const model = "/assets/models/character.glb";
 
 type GLTFResult = {
     nodes: Record<string, SkinnedMesh>,

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { CardSpotlight } from "./ui/Card";
 import { useNavigate } from "react-router-dom";
 import { HoverBorderGradient } from "./ui/HoverBorderGradient";
-import whiteArrow from "../assets/images/iconArrowUprightWhite.png";
+import whiteArrow from "/assets/images/iconArrowUprightWhite.png";
 
 // const currProjects = [
 //     {

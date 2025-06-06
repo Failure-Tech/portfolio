@@ -9,7 +9,7 @@ const projects = [
         role: "Project Engineer",
         year: "2025",
         description: "Used discrete ricci flow, a technique found within differential geometry to discretize continous values within a generated mesh from an occupancy network. Built full infrastructure with Oliver-Ricci and PyTorch, rendered mesh higher qaulity, leading to a 10%+ in data reduction, increasing latency by 5%, and acheiving an 86% accuracy rate.",
-        image: "./src/assets/images/diff_geo.png",
+        image: "/assets/images/diff_geo.png",
         link: "",
         linkText: "VIEW PROJECT",
         secondLink: false
@@ -19,7 +19,7 @@ const projects = [
         role: "Co-Founder",
         year: "2024",
         description: "With a pair of differential equations, used them to map out a restorative heatmap bijection for invasive species and other organisms as well. Used a heatmap + polygon coordinates to cross-sectionalize and map out specific areas, mapping growth over time. Led development, curated db with over 10k+ plants for users to learn about and incorporate into local gardens.",
-        image: "./src/assets/images/restoramap.png",
+        image: "/assets/images/restoramap.png",
         link: "https://github.com/Failure-Tech/restoration_map-1",
         linkText: "VIEW PROJECT",
         secondLink: false
@@ -29,7 +29,7 @@ const projects = [
         role: "Chief Tech Officer",
         year: "2024",
         description: "Helped create a full-stack digital SAT prep platform, garnering over 80k+ users, and using RAG to save user prompts to personalized AI tutor, backed by Groq. Helped onboard CollegeBoard API + built math section, and helped lead marketing growth as well.",
-        image: "./src/assets/images/dailysat.png",
+        image: "/assets/images/dailysat.png",
         link: "https://dailysat.org/",
         linkText: "VIEW PROJECT",
         secondLink: false
@@ -39,7 +39,7 @@ const projects = [
         role: "Co-Founder",
         year: "2024",
         description: "Democratizing big media with a small journalism platform, helping lead a 50+ member team for journalism, leading to over 450+ users using our site. Created full frontend + backend for site, using Firebase + React stack and currently working on fundraising for new ventures + hosting local competition.",
-        image: "./src/assets/images/tyji.png",
+        image: "/assets/images/tyji.png",
         link: "https://tyji.org/",
         linkText: "VIEW PROJECT",
         secondLink: false
@@ -49,7 +49,7 @@ const projects = [
         role: "Founding/Lead Open Source Dev",
         year: "2023",
         description: "Giving suffrage to anyone who wants to build their own applications, building the ultimate AI code editor. Worked on Claude API implementation, and improving routing on landing page, as well as building a tiered subscription platform for individual APIs. Was featured on YT channels with 500k+ subs; backed by YC, raised $1m+ in funding for API tokens and developmental costs.",
-        image: "./src/assets/images/pearai.png",
+        image: "/assets/images/pearai.png",
         link: "https://trypear.ai/",
         linkText: "VIEW PROJECT",
         secondLink: false
@@ -59,7 +59,7 @@ const projects = [
         role: "Founder",
         year: "2023",
         description: "First ever startup, attempted to build the ultimate startup product development pack, building out a full UI-toolkit meant for developers and entreprenuers to streamline development to focus on core product features and consumer integration, not UI. Ammased a 50+ member waitlist, developed a Stripe API endpoint + Firebase DB for allocating easy development, MailChimp for to keep recurring users, and React UI components for easy use. Sadly never got to launch fully, but it was a great learning experience to build my future startups.",
-        image: "./src/assets/images/blaze.png",
+        image: "/assets/images/blaze.png",
         link: "https://github.com/Failure-Tech/Blaze",
         linkText: "VIEW PROJECT",
         secondLink: false
