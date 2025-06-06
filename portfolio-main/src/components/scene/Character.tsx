@@ -1,13 +1,24 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { useEffect, useRef } from "react";
+import * as THREE from "three";
+import type { Group, Material, SkinnedMesh } from "three";
 
 const model = "./src/assets/models/character.glb";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Character = ({ animation, ...props } : {animation: any}) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const group = useRef<any>({});
-    const { nodes, materials, animations } = useGLTF(model);
+type GLTFResult = {
+    nodes: Record<string, SkinnedMesh>,
+    materials: Record<string, Material>,
+    animations: THREE.AnimationClip[],
+    scene: THREE.Group
+};
+
+type CharacterProps = JSX.IntrinsicElements["group"] & {
+    animation: string;
+};
+
+const Character = ({ animation } : CharacterProps) => { // add ...props if necessary
+    const group = useRef<Group>(null);
+    const { nodes, materials, animations } = useGLTF(model) as unknown as GLTFResult;
     const { actions } = useAnimations(animations, group);
 
     useEffect(() => {
@@ -18,39 +29,39 @@ const Character = ({ animation, ...props } : {animation: any}) => {
     }, [actions, animation]);
 
     return (
-        <group ref={group} {...props} dispose={null}>
+        <group ref={group} dispose={null}>
             <group name="Scene">
                 <group name="fall_guys">
                     <primitive object={nodes._rootJoint} />
                     <skinnedMesh 
                         name="body"
-                        geometry={nodes.body.geometry}
-                        material={materials.Material}
-                        skeleton={nodes.body.skeleton}
+                        geometry={(nodes.body as unknown as SkinnedMesh).geometry}
+                        material={materials.Material as unknown as Material}
+                        skeleton={(nodes.body as unknown as SkinnedMesh).skeleton}
                         castShadow
                         receiveShadow
                     />
                     <skinnedMesh 
                         name="eye"
-                        geometry={nodes.eye.geometry}
-                        material={materials.Material}
-                        skeleton={nodes.eye.skeleton}
+                        geometry={(nodes.eye as unknown as SkinnedMesh).geometry}
+                        material={materials.Material as unknown as Material}
+                        skeleton={(nodes.eye as unknown as SkinnedMesh).skeleton}
                         castShadow
                         receiveShadow
                     />
                     <skinnedMesh 
                         name="hand-"
-                        geometry={nodes["hand-"].geometry}
-                        material={materials.Material}
-                        skeleton={nodes["hand-"].skeleton}
+                        geometry={(nodes["hand-"] as unknown as SkinnedMesh).geometry}
+                        material={materials.Material as unknown as Material}
+                        skeleton={(nodes["hand-"] as unknown as SkinnedMesh).skeleton}
                         castShadow
                         receiveShadow
                     />
                     <skinnedMesh 
                         name="leg"
-                        geometry={nodes.leg.geometry}
-                        material={materials.Material}
-                        skeleton={nodes.leg.skeleton}
+                        geometry={(nodes.leg as unknown as SkinnedMesh).geometry}
+                        material={materials.Material as unknown as Material}
+                        skeleton={(nodes.leg as unknown as SkinnedMesh).skeleton}
                         castShadow
                         receiveShadow
                     />

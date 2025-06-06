@@ -1,25 +1,40 @@
-import React, { useState, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import Experience from "./Experience";
+import { Canvas } from "@react-three/fiber";
+import { KeyboardControls } from "@react-three/drei";
+
+// interface Keyboard {
+//     forward: Event | string;
+//     backward: Event | string;
+//     left: Event | string;
+//     right: Event | string;
+//     run: Event | string;
+//     jump: Event | string;
+//     keys: [];
+// }
+
+const keyboardMap = [
+    { name: "forward", keys:["ArrowUp", "KeyW"] },
+    { name: "backward", keys:["ArrowDown", "KeyS"] },
+    { name: "left", keys:["ArrowLeft", "KeyA"] },
+    { name: "right", keys:["ArrowRight", "KeyD"] },
+    { name: "run", keys:["Shift"] },
+    { name: "jump", keys:["Space"] }
+]
 
 const Play: React.FC = () => {
-    const [position, setPosition] = useState([0, 0, 0]);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const playerRef = useRef<any>([]);
-
-    useFrame(() => {
-        const movementSpeed = 0.05;
-        setPosition([position[0], position[1], position[2] - movementSpeed]);
-        playerRef.current.position.set(...position);
-    });
-
     return (
-        <Canvas>
-            <ambientLight intensity={0.3} color="blue" />
-            <mesh ref={playerRef}>
-                <boxGeometry args={[2, 2, 2]} />
-                <meshStandardMaterial color="red" />
-            </mesh>
-        </Canvas>
+        <>
+            <KeyboardControls map={keyboardMap}>
+                <Canvas
+                    shadows
+                    camera={{position: [3, 3, 3], near: 0.1, fov: 40}}
+                    style={{ touchAction: "none", height: "100vh", width: "100vw" }}
+                >
+                    <color attach="background" args={["#ececec"]} />
+                    <Experience />
+                </Canvas>
+            </KeyboardControls>
+        </>
     )
 }
 

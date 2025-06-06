@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { Environment, OrthographicCamera } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
 import { useControls } from "leva";
@@ -9,7 +7,7 @@ import { useRef } from "react";
 
 const maps = {
     castle_on_hills: {
-        scale: 3,
+        scale: 2.5,
         position: [-6, -7, 0]
     },
     basketball_court: {
@@ -19,7 +17,7 @@ const maps = {
 };
 
 const Experience = () => {
-    const shadowCamRef = useRef();
+    const shadowCamRef = useRef(null);
     const { map } = useControls("Map", {
         map: {
             value: "castle_on_hills",
@@ -49,9 +47,9 @@ const Experience = () => {
             </directionalLight>
             <Physics key={map}>
                 <Map 
-                    scale={maps[map].scale}
-                    position={maps[map].position}
-                    model={`models/${map}.glb`}
+                    scale={maps[map as keyof typeof maps].scale}
+                    position={maps[map as keyof typeof maps].position}
+                    model={`./src/assets/models/${map}.glb`}
                 />
                 <CharacterController />
             </Physics>

@@ -29,11 +29,12 @@ const lerpAngle = (start: number, end: number, t: number) => {
 };
 
 export const CharacterController = () => {
-  const { WALK_SPEED, RUN_SPEED, ROTATION_SPEED } = useControls(
+  const { WALK_SPEED, RUN_SPEED, JUMP, ROTATION_SPEED } = useControls(
     "Character Control",
     {
       WALK_SPEED: { value: 0.8, min: 0.1, max: 4, step: 0.1 },
       RUN_SPEED: { value: 1.6, min: 0.2, max: 12, step: 0.1 },
+      JUMP: { value: 0.5, min: 0.2, max: 5, step: 0.001 },
       ROTATION_SPEED: {
         value: degToRad(0.5),
         min: degToRad(0.1),
@@ -86,11 +87,12 @@ export const CharacterController = () => {
   }, []);
 
   useFrame(({ camera, mouse }) => {
-    if (rb.current) {
+    if (rb.current && rb.current.linvel) {
       const vel = rb.current.linvel();
 
       const movement = {
         x: 0,
+        y: 0,
         z: 0,
       };
 
@@ -102,6 +104,7 @@ export const CharacterController = () => {
       }
 
       let speed = get().run ? RUN_SPEED : WALK_SPEED;
+      const jump = get().jump ? JUMP: 0;
 
       if (isClicking.current) {
         console.log("clicking", mouse.x, mouse.y);
@@ -119,6 +122,9 @@ export const CharacterController = () => {
       }
       if (get().right) {
         movement.x = -1;
+      }
+      if (get().jump) {
+        movement.y += jump;
       }
 
       if (movement.x !== 0) {
@@ -174,7 +180,7 @@ export const CharacterController = () => {
         <group ref={cameraTarget} position-z={1.5} />
         <group ref={cameraPosition} position-y={4} position-z={-4} />
         <group ref={character}>
-          <Character scale={0.18} position-y={-0.25} animation={animation} />
+          <Character scale={0.0005} position-y={-0.25} animation={animation} />
         </group>
       </group>
       <CapsuleCollider args={[0.08, 0.15]} />

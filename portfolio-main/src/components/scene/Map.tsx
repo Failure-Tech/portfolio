@@ -1,16 +1,32 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import { useEffect, useRef } from "react";
+import type { Object3D } from "three";
+import { Gltf } from "@react-three/drei";
+import * as THREE from "three";
 
-const Map = ({model, ...props}: {model: any}) => {
-    const { scene, animations } = useGLTF(model);
-    const group = useRef();
-    const { actions }: any | null = useAnimations(animations, group);
+type GLTFResult = (typeof Gltf) & {
+    scene: Object3D;
+    animations: THREE.AnimationClip[];
+}
+
+type MapProps = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    model: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    scale?: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    position?: any;
+}
+
+const Map = ({model, ...props}: MapProps) => {
+    const { scene, animations } = useGLTF(model) as unknown as GLTFResult;
+    const group = useRef<THREE.Group>(null);
+    const { actions } = useAnimations(animations, group);
 
     useEffect(() => {
-        scene.traverse((child: any) => {
-            if (child.mesh) {
+        scene.traverse((child) => {
+            if ((child as THREE.Mesh).isMesh) {
                 child.castShadow = true;
                 child.receiveShadow = true;
             }
@@ -19,14 +35,15 @@ const Map = ({model, ...props}: {model: any}) => {
 
     useEffect(() => {
         if (actions && animations.length > 0) {
-            actions[animations[0].name].play();
+            actions[animations[0].name]?.play();
         }
     }, [animations, actions]);
 
     return (
         <group>
             <RigidBody type="fixed" colliders="trimesh">
-                <primitive object={scene} {...props} ref={group} />
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                <primitive object={scene} {...props} ref={group as never} />
             </RigidBody>
         </group>
     )
